@@ -5,10 +5,10 @@ from typing import List
 from database import get_session
 from schemas import Emp, EmpOutput
 
-router = APIRouter(prefix="/api/emps")
+router = APIRouter(prefix="/api/employees")
 
 
-@router.get("/employees/")
+@router.get("/")
 def get_cars(EMPLOYEE_NAME: str | None = None,
              ORGANIZATION: str | None = None,
              session: Session = Depends(get_session)) -> list:
@@ -20,7 +20,7 @@ def get_cars(EMPLOYEE_NAME: str | None = None,
     return session.exec(query).all()
 
 
-@router.get("/employees/{EMPLOYEE_NUMBER}", response_model=EmpOutput)
+@router.get("/{EMPLOYEE_NUMBER}", response_model=EmpOutput)
 def Emp_by_id(EMPLOYEE_NUMBER: int, session: Session = Depends(get_session)) -> Emp:
     emp = session.get(Emp, EMPLOYEE_NUMBER)
     if emp:
