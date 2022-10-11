@@ -5,8 +5,18 @@ from typing import List, Optional
 class Emp_Input(SQLModel):
     EMPLOYEE_NAME: Optional[str] = Field(index=True)
     ORGANIZATION: Optional[str]
-    LOCATION: Optional[str]
+    ORGANIZATION: Optional[str]
     SALARY: Optional[float] = Field(default=None, index=True)
+
+    class Config:
+        schema_extra = {
+            "example": {
+                "EMPLOYEE_NAME": "ABC",
+                "ORGANIZATION": "DEF",
+                "ORGANIZATION": "XYZ",
+                "SALARY": 20.4
+            }
+        }
 
 
 class Emp(Emp_Input, table=True):
