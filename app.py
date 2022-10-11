@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlmodel import SQLModel
 
 from database import engine
-from routers import emp
+from routers import endpoints
 
 app = FastAPI(title="Employee Listing")
 app.include_router(emp.router)

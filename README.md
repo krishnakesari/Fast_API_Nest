@@ -1,11 +1,12 @@
 # Fast_API_Nest
 
 File Structure:
-App
+Routers
   __init__.py
-  main.py
-  models.py
-  schemas.py
-  database.py
-  crud.py
+  endpoints.py
+
+app.py
+models.py
+database.py
+
 Test

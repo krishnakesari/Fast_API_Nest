@@ -1,5 +1,6 @@
+from typing import Optional
+
 from sqlmodel import SQLModel, Field
-from typing import List, Optional
 
 
 class Emp_Input(SQLModel):

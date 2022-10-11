@@ -3,7 +3,7 @@ from sqlmodel import Session, select
 from typing import List
 
 from database import get_session
-from schemas import Emp, EmpOutput
+from models import Emp, EmpOutput
 
 router = APIRouter(prefix="/api/employees")
 
