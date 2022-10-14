@@ -3,7 +3,7 @@ from sqlmodel import Session, select
 from typing import List
 
 from database import get_session
-from models import Emp, EmpOutput
+from models import Emp, EmpOutput, Performance
 
 router = APIRouter(prefix="/api/employees")
 
@@ -27,3 +27,11 @@ def Emp_by_id(EMPLOYEE_NUMBER: int, session: Session = Depends(get_session)) -> 
     if not emp:
         raise HTTPException(status_code=404, detail=f"No employee with id={EMPLOYEE_NUMBER}.")
     return emp
+
+
+# Performance Router
+@router.get("/performance/")
+def get_performance(
+        session: Session = Depends(get_session)) -> list:
+    query = select(Performance)
+    return session.exec(query).all()
