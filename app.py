@@ -7,7 +7,7 @@ from database import engine
 from routers import endpoints
 
 app = FastAPI(title="Employee Listing")
-app.include_router(emp.router)
+app.include_router(endpoints.router)
 
 origins = [
     "http://localhost:8000",
