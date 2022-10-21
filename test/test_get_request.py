@@ -1,6 +1,6 @@
 from fastapi.testclient import TestClient
 
-from carsharing import app
+from main import app
 
 client = TestClient(app)
 
